@@ -3,9 +3,10 @@ from flask import Flask
 
 app_JVitor = Flask (__name__)
 
-# Feature código aula 02
-def saudacoes(nome):
-    return f'Olá, {nome}'
+# Feature código aula 02 e aula 06
+@app_JVitor.route('/<id>')
+def saudacoes(id):
+    return('homepage_nome.html', nome=id)
 
 # Feature código aula 03
 @app_JVitor.route('/rota1')
@@ -14,7 +15,7 @@ def rota1():
 
 @app_JVitor.route('/rota2')
 def rota2():
-    resposta = "<h3> Essa é outra página da rota 2 </h3>"
+    resposta = "<h3> Essa é um página da rota 2 </h3>"
     return resposta
 
 # Feature código aula 04
@@ -30,11 +31,12 @@ def contato():
 @app_JVitor.route("/index")
 def indice():
     return("index.html")
+
 @app_JVitor.route("/usuario")
 def dados_usuario():
     nome_usuario="JVitor"
     dados_usuario = {"profissao":"Aluno", "disciplina":"Desenvolvimento Web III"}
     return("usuario.html", nome = nome_usuario, dados = dados_usuario)
+
 # Feature código aula 02
-if __name__ == "_main_":
-    app_JVitor.run()
+if __name__ == "__main__":
