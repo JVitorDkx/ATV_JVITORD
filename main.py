@@ -7,8 +7,14 @@ app_JVitor = Flask (__name__)
 
 def raiz():
     return 'Olá, turma!'
-# fea código aula 02
-def saudacoes(nome):
-    return f'Olá, {nome}'
+# Fea código aula 03
+@app_JVitor.route('/rota1')
+def rota1():
+    return 'Olá Usuáriooo!!'
+@app_JVitor.route('/rota2')
+def rota2():
+    resposta = "<h3> Essa é uma página da rota 2 </h3>"
+    return resposta
+# Fea código aula 02
 if __name__ == "_main_":
-  app_JVitor.run()
+    app_JVitor.run()
