@@ -15,7 +15,7 @@ def rota1():
 
 @app_JVitor.route('/rota2')
 def rota2():
-    resposta = "<h3> Essa é um página da rota 2 </h3>"
+    resposta = "<h3> Essa é uma página da rota 2 </h3>"
     return resposta
 
 # Feature código aula 04
@@ -38,5 +38,11 @@ def dados_usuario():
     dados_usuario = {"profissao":"Aluno", "disciplina":"Desenvolvimento Web III"}
     return("usuario.html", nome = nome_usuario, dados = dados_usuario)
 
+# Feature código aula 06
+@app_JVitor.route("/usuario/<nome_usuario>;<nome_profissao>;<nome_disciplina>")
+def usuario(nome_usuario, nome_profissao, nome_disciplina):
+    dados_usuario = {"profissao": nome_profissao, "disciplina": nome_disciplina}
+    return("usuario.html", nome=nome_usuario, dados=dados_usuario)
 # Feature código aula 02
 if __name__ == "__main__":
+    app_JVitor.run()
